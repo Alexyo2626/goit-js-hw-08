@@ -1,3 +1,5 @@
+import throttle from 'lodash.throttle';
+
 const formEl = document.querySelector('.feedback-form');
 const formData = {};
 initPage();
@@ -20,7 +22,7 @@ function handleInput(event) {
   }
 }
 
-formEl.addEventListener('input', handleInput);
+formEl.addEventListener('input', throttle(handleInput, 500));
 
 function initPage() {
   try {
